@@ -1,0 +1,11 @@
+name: BellQuickTravelPoints
+version: 1.0
+main: pl.kerrex.bellquicktravel.BellQuickTravelPlugin
+
+commands:
+  qt-register:
+    description: Registers previously discovered bell as new quick travel point
+    usage: /qt-register <new_point_name>
+  qt:
+    description: Teleports player to previously registered bell quick travel point
+    usage: /qt <name_of_point>
