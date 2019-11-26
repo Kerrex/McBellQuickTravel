@@ -5,6 +5,7 @@ import org.bukkit.World
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
+import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.entity.Player
 import pl.kerrex.bellquicktravel.KnownQuickTravelPointsStore
 import pl.kerrex.bellquicktravel.PendingApprovalStore
@@ -12,7 +13,8 @@ import java.util.logging.Logger
 
 class BellQuickTravelRegisterCommand(private val logger: Logger,
                                      private val knownQuickTravelPointsStore: KnownQuickTravelPointsStore,
-                                     private val pendingApprovalStore: PendingApprovalStore
+                                     private val pendingApprovalStore: PendingApprovalStore,
+                                     private val config: FileConfiguration
 ) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
@@ -43,7 +45,7 @@ class BellQuickTravelRegisterCommand(private val logger: Logger,
 
     private fun showMessageToAllPlayersInWorld(world: World, quickTravelPointName: String) {
         world.players.forEach {
-            it.sendTitle("Odnaleziono nowe miasto:", quickTravelPointName, 10, 100, 20)
+            it.sendTitle(config.getString("foundNewQuickTravelPointMessage"), quickTravelPointName, 10, 100, 20)
         }
     }
 }

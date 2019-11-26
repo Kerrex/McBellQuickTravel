@@ -1,6 +1,7 @@
 name: BellQuickTravelPoints
 version: 1.0
 main: pl.kerrex.bellquicktravel.BellQuickTravelPlugin
+api-version: 1.13
 
 commands:
   qt-register:
@@ -9,3 +10,6 @@ commands:
   qt:
     description: Teleports player to previously registered bell quick travel point
     usage: /qt <name_of_point>
+  qt-list:
+    description: Show list of available bell quick travel points
+    usage: /qt-list
