@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("java")
-    kotlin("jvm") version "1.3.60"
+    kotlin("jvm") version "1.5.20"
     id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
@@ -16,15 +16,14 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT")
-    implementation(kotlin("stdlib-jdk8"))
+    compileOnly("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
 }
 
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "16"
 }
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "16"
 }
